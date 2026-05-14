@@ -51,7 +51,11 @@ def load_csv(filename):
 
 def get_category_id(name):
     url = f"{BASE_URL}/categories.json"
-    headers = {"Api-Key": API_KEY, "Api-Username": API_USERNAME}
+    headers = {
+        "Api-Key": API_KEY, 
+        "Api-Username": API_USERNAME,
+        "ngrok-skip-browser-warning": "true"
+    }
     try:
         r = requests.get(url, headers=headers, timeout=10)
         if r.status_code == 200:
@@ -65,7 +69,11 @@ def get_category_id(name):
 
 def create_topic(username, title, raw, category_id):
     url = f"{BASE_URL}/posts.json"
-    headers = {"Api-Key": API_KEY, "Api-Username": API_USERNAME}
+    headers = {
+        "Api-Key": API_KEY, 
+        "Api-Username": API_USERNAME,
+        "ngrok-skip-browser-warning": "true"
+    }
     payload = {
         "title": title,
         "raw": raw,
@@ -84,7 +92,11 @@ def create_topic(username, title, raw, category_id):
 
 def post_reply(username, topic_id, raw, reply_to_post_number=None):
     url = f"{BASE_URL}/posts.json"
-    headers = {"Api-Key": API_KEY, "Api-Username": API_USERNAME}
+    headers = {
+        "Api-Key": API_KEY, 
+        "Api-Username": API_USERNAME,
+        "ngrok-skip-browser-warning": "true"
+    }
     payload = {
         "topic_id": topic_id,
         "raw": raw,
